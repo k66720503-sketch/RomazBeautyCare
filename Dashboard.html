@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romaz Beauty Care | Luxury Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== LUXURY ADMIN THEME ========== */
+        :root {
+            --deep-rose: #a15c66;
+            --dusty-rose: #c48a8f;
+            --blush: #f3d9dc;
+            --ivory: #fef8f7;
+            --charcoal: #4e3e42;
+            --taupe: #8a7a7c;
+            --gold-accent: #c6a15b;
+            --shadow-luxury: 0 25px 50px -12px rgba(161, 92, 102, 0.2);
+            --radius-elegant: 24px;
+            --transition-smooth: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(145deg, #fef8f7 0%, #fef1f3 100%);
+            color: var(--charcoal);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(180deg, #3a2c2f 0%, #2b2022 100%);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-header {
+            padding: 35px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .sidebar-logo {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(145deg, var(--dusty-rose), var(--deep-rose));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .sidebar-header h2 {
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        .sidebar-menu {
+            padding: 30px 0;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 30px;
+            color: #e0d2d4;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            border-left: 5px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: rgba(255,255,255,0.06);
+            color: white;
+            border-left-color: var(--dusty-rose);
+        }
+
+        .menu-item i {
+            width: 28px;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .menu-badge {
+            margin-left: auto;
+            background: var(--dusty-rose);
+            color: white;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            flex: 1;
+            margin-left: 300px;
+            padding: 30px;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-luxury);
+            border: 1px solid rgba(196, 138, 143, 0.2);
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            color: var(--deep-rose);
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .admin-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(145deg, var(--deep-rose), var(--dusty-rose));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .refresh-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--ivory);
+            border: 2px solid var(--dusty-rose);
+            color: var(--deep-rose);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .refresh-btn:hover {
+            background: var(--deep-rose);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        /* ===== STATS CARDS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-luxury);
+            border: 1px solid rgba(196, 138, 143, 0.15);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--deep-rose), var(--gold-accent));
+        }
+
+        .stat-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--taupe);
+            font-weight: 500;
+        }
+
+        /* ===== DASHBOARD SECTIONS ===== */
+        .dashboard-section {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-luxury);
+            border: 1px solid rgba(196, 138, 143, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h3 {
+            font-size: 24px;
+            color: var(--deep-rose);
+        }
+
+        /* ===== TABLES ===== */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--ivory);
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--charcoal);
+            border-bottom: 3px solid var(--blush);
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid var(--blush);
+        }
+
+        tr:hover {
+            background: var(--ivory);
+        }
+
+        .status-badge {
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-confirmed { background: #d4edda; color: #155724; }
+        .status-completed { background: #cce5ff; color: #004085; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--deep-rose), #8a4b54);
+            color: white;
+            box-shadow: 0 8px 16px rgba(161, 92, 102, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(161, 92, 102, 0.35);
+        }
+
+        .btn-small {
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+
+        /* ===== FILTERS ===== */
+        .filter-select {
+            padding: 12px 25px;
+            border-radius: 60px;
+            border: 2px solid var(--blush);
+            background: white;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: modalFloat 0.4s ease;
+        }
+
+        @keyframes modalFloat {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--taupe);
+            cursor: pointer;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 1000;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .main {
+                margin-left: 0;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--deep-rose);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 60px;
+            box-shadow: 0 15px 30px rgba(161, 92, 102, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-spa"></i>
+            </div>
+            <h2>Romaz Beauty<br><span style="font-size: 14px; font-weight: 300; opacity: 0.8;">Luxury Admin</span></h2>
+        </div>
+        
+        <div class="sidebar-menu">
+            <div class="menu-item active" onclick="showSection('dashboard')">
+                <i class="fas fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </div>
+            <div class="menu-item" onclick="showSection('bookings')">
+                <i class="fas fa-calendar-check"></i>
+                <span>Bookings</span>
+                <span class="menu-badge" id="pendingBookingsBadge">0</span>
+            </div>
+            <div class="menu-item" onclick="showSection('customers')">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+                <span class="menu-badge" id="totalCustomersBadge">0</span>
+            </div>
+            <div class="menu-item" onclick="showSection('analytics')">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </div>
+            <div class="menu-item" onclick="showSection('revenue')">
+                <i class="fas fa-rupee-sign"></i>
+                <span>Revenue</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <button class="mobile-menu-toggle" id="menuToggle" style="background: none; border: none; font-size: 26px; color: var(--deep-rose; display: none;">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <button class="refresh-btn" onclick="refreshAllData()">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            
+            <div class="admin-profile">
+                <div class="admin-avatar">RS</div>
+                <div>
+                    <div style="font-weight: 700;">Romaz Beauty</div>
+                    <div style="font-size: 13px; color: var(--taupe);">Administrator</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboardSection">
+            <!-- STATS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(161, 92, 102, 0.1); color: var(--deep-rose);">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-number" id="totalBookingsStat">0</div>
+                    <div class="stat-label">Total Bookings</div>
+                    <div style="margin-top: 15px; color: var(--dusty-rose);">
+                        <i class="fas fa-clock"></i> <span id="todayBookingsStat">0 today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(198, 161, 91, 0.1); color: var(--gold-accent);">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-number" id="totalRevenueStat">₹0</div>
+                    <div class="stat-label">Total Revenue</div>
+                    <div style="margin-top: 15px; color: var(--dusty-rose);">
+                        <i class="fas fa-chart-line"></i> <span id="todayRevenueStat">₹0 today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(108, 154, 108, 0.1); color: #6c9a6c;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" id="totalCustomersStat">0</div>
+                    <div class="stat-label">Registered Customers</div>
+                    <div style="margin-top: 15px; color: var(--dusty-rose);">
+                        <i class="fas fa-user-plus"></i> <span id="activeCustomersStat">0 active</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(183, 110, 121, 0.1); color: var(--deep-rose);">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="stat-number" id="holiBookingsStat">0</div>
+                    <div class="stat-label">Holi Offer Bookings</div>
+                    <div style="margin-top: 15px; color: var(--dusty-rose);">
+                        <i class="fas fa-gift"></i> 20% OFF
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECENT BOOKINGS -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>Recent Bookings</h3>
+                    <button class="btn btn-primary btn-small" onclick="showSection('bookings')">
+                        <i class="fas fa-eye"></i> View All
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table id="recentBookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Services</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 50px;">
+                                    <div style="font-size: 16px; color: var(--taupe);">Loading bookings...</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TOP CUSTOMERS -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>Top Customers</h3>
+                    <button class="btn btn-primary btn-small" onclick="showSection('customers')">
+                        <i class="fas fa-users"></i> View All
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table id="topCustomersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>Bookings</th>
+                                <th>Total Spent</th>
+                                <th>Last Visit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 50px;">
+                                    <div style="font-size: 16px; color: var(--taupe);">Loading customers...</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOKINGS SECTION -->
+        <div id="bookingsSection" style="display: none;">
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>All Bookings</h3>
+                    <div style="display: flex; gap: 15px;">
+                        <select id="bookingStatusFilter" class="filter-select" onchange="loadAllBookings()">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button class="btn btn-primary btn-small" onclick="loadAllBookings()">
+                            <i class="fas fa-redo-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="allBookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Date/Time</th>
+                                <th>Services</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CUSTOMERS SECTION -->
+        <div id="customersSection" style="display: none;">
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>Customer Database</h3>
+                    <button class="btn btn-primary btn-small" onclick="loadAllCustomers()">
+                        <i class="fas fa-redo-alt"></i> Refresh
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Registered</th>
+                                <th>Bookings</th>
+                                <th>Total Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANALYTICS SECTION -->
+        <div id="analyticsSection" style="display: none;">
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>Business Analytics</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px;">
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe); margin-bottom: 12px;">Conversion Rate</div>
+                        <div style="font-size: 42px; font-weight: 700; color: var(--deep-rose);" id="conversionRateStat">0%</div>
+                        <div style="margin-top: 10px;">Visits to Bookings</div>
+                    </div>
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe); margin-bottom: 12px;">Avg. Booking Value</div>
+                        <div style="font-size: 42px; font-weight: 700; color: var(--gold-accent);" id="avgBookingValue">₹0</div>
+                    </div>
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe); margin-bottom: 12px;">Holi Offer Usage</div>
+                        <div style="font-size: 42px; font-weight: 700; color: #c48a8f;" id="holiUsageStat">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVENUE SECTION -->
+        <div id="revenueSection" style="display: none;">
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3>Revenue Overview</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe);">Today</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--deep-rose); margin: 15px 0;" id="todayRevenueDetail">₹0</div>
+                        <div id="todayBookingsDetail">0 bookings</div>
+                    </div>
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe);">This Week</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--gold-accent); margin: 15px 0;" id="weekRevenueDetail">₹0</div>
+                        <div id="weekComparisonDetail">↑ 0% vs last week</div>
+                    </div>
+                    <div style="background: var(--ivory); padding: 30px; border-radius: 20px;">
+                        <div style="color: var(--taupe);">This Month</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--dusty-rose); margin: 15px 0;" id="monthRevenueDetail">₹0</div>
+                        <div id="monthComparisonDetail">↑ 0% vs last month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING DETAILS MODAL -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 style="color: var(--deep-rose);">Booking Details</h3>
+                <button class="modal-close" onclick="closeModal('bookingModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="bookingModalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== STORAGE KEYS (MUST MATCH CUSTOMER WEBSITE) ====================
+        const STORAGE_KEYS = {
+            BOOKINGS: 'romaz_bookings',
+            CUSTOMERS: 'romaz_customers',
+            CURRENT_USER: 'romaz_current_user'
+        };
+
+        // ==================== GLOBAL DATA ====================
+        let bookings = [];
+        let customers = [];
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStorage();
+            loadAllData();
+            setupEventListeners();
+            showSection('dashboard');
+            
+            // Auto-refresh every 10 seconds
+            setInterval(loadAllData, 10000);
+        });
+
+        function initializeStorage() {
+            if (!localStorage.getItem(STORAGE_KEYS.BOOKINGS)) {
+                localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify([]));
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) {
+                localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify([]));
+            }
+        }
+
+        function loadAllData() {
+            loadBookings();
+            loadCustomers();
+            updateDashboard();
+            
+            // Update current view
+            const activeSection = document.querySelector('.menu-item.active')?.getAttribute('onclick') || '';
+            if (activeSection.includes('bookings')) loadAllBookings();
+            if (activeSection.includes('customers')) loadAllCustomers();
+        }
+
+        function loadBookings() {
+            bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+        }
+
+        function loadCustomers() {
+            customers = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) || [];
+        }
+
+        // ==================== DASHBOARD UPDATES ====================
+        function updateDashboard() {
+            // Total stats
+            document.getElementById('totalBookingsStat').textContent = bookings.length;
+            document.getElementById('totalCustomersStat').textContent = customers.length;
+            document.getElementById('totalCustomersBadge').textContent = customers.length;
+            
+            // Revenue
+            const totalRevenue = bookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            document.getElementById('totalRevenueStat').textContent = `₹${totalRevenue.toLocaleString('en-IN')}`;
+            
+            // Today's stats
+            const today = new Date().toISOString().split('T')[0];
+            const todayBookings = bookings.filter(b => b.date === today);
+            const todayRevenue = todayBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            
+            document.getElementById('todayBookingsStat').textContent = `${todayBookings.length} today`;
+            document.getElementById('todayRevenueStat').textContent = `₹${todayRevenue.toLocaleString('en-IN')} today`;
+            
+            // Pending bookings
+            const pendingCount = bookings.filter(b => b.status === 'pending').length;
+            document.getElementById('pendingBookingsBadge').textContent = pendingCount;
+            
+            // Holi bookings
+            const holiBookings = bookings.filter(b => b.holiOfferApplied === true).length;
+            document.getElementById('holiBookingsStat').textContent = holiBookings;
+            
+            // Recent bookings table
+            loadRecentBookings();
+            
+            // Top customers
+            loadTopCustomers();
+            
+            // Analytics
+            updateAnalytics();
+            
+            // Revenue
+            updateRevenueStats();
+        }
+
+        function loadRecentBookings() {
+            const tbody = document.querySelector('#recentBookingsTable tbody');
+            if (!tbody) return;
+            
+            const recent = [...bookings]
+                .sort((a, b) => new Date(b.bookingDate) - new Date(a.bookingDate))
+                .slice(0, 8);
+            
+            if (recent.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 50px;">No bookings yet</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            recent.forEach(booking => {
+                const statusClass = `status-${booking.status || 'pending'}`;
+                const statusText = booking.status ? 
+                    booking.status.charAt(0).toUpperCase() + booking.status.slice(1) : 'Pending';
+                
+                html += `
+                    <tr>
+                        <td><strong>${booking.id || 'N/A'}</strong></td>
+                        <td>${booking.name || 'Unknown'}</td>
+                        <td>${booking.date || ''} ${booking.time || ''}</td>
+                        <td>${booking.services?.length || 0} service(s)</td>
+                        <td><strong>₹${booking.finalTotal || 0}</strong></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>
+                            <button class="btn btn-primary btn-small" onclick="viewBooking('${booking.id}')">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        function loadTopCustomers() {
+            const tbody = document.querySelector('#topCustomersTable tbody');
+            if (!tbody) return;
+            
+            // Calculate customer stats from bookings
+            const stats = {};
+            bookings.forEach(b => {
+                if (!b.phone) return;
+                if (!stats[b.phone]) {
+                    stats[b.phone] = {
+                        name: b.name,
+                        phone: b.phone,
+                        bookings: 0,
+                        total: 0,
+                        lastDate: b.date
+                    };
+                }
+                stats[b.phone].bookings++;
+                stats[b.phone].total += b.finalTotal || 0;
+                if (b.date > stats[b.phone].lastDate) stats[b.phone].lastDate = b.date;
+            });
+            
+            const top = Object.values(stats)
+                .sort((a, b) => b.total - a.total)
+                .slice(0, 5);
+            
+            if (top.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 50px;">No customer data</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            top.forEach(c => {
+                html += `
+                    <tr>
+                        <td><strong>${c.name}</strong></td>
+                        <td>${c.phone}</td>
+                        <td>${c.bookings}</td>
+                        <td><strong>₹${c.total.toLocaleString('en-IN')}</strong></td>
+                        <td>${c.lastDate || 'N/A'}</td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // ==================== ALL BOOKINGS ====================
+        function loadAllBookings() {
+            const tbody = document.querySelector('#allBookingsTable tbody');
+            if (!tbody) return;
+            
+            const filter = document.getElementById('bookingStatusFilter')?.value || 'all';
+            let filtered = bookings;
+            if (filter !== 'all') {
+                filtered = bookings.filter(b => b.status === filter);
+            }
+            
+            const sorted = [...filtered].sort((a, b) => new Date(b.bookingDate) - new Date(a.bookingDate));
+            
+            if (sorted.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 50px;">No bookings found</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            sorted.forEach(booking => {
+                const statusClass = `status-${booking.status || 'pending'}`;
+                const statusText = booking.status ? 
+                    booking.status.charAt(0).toUpperCase() + booking.status.slice(1) : 'Pending';
+                
+                html += `
+                    <tr>
+                        <td><strong>${booking.id}</strong></td>
+                        <td>${booking.name}<br><span style="font-size: 12px; color: var(--taupe);">${booking.phone}</span></td>
+                        <td>${booking.date}<br><span style="font-size: 12px;">${booking.time}</span></td>
+                        <td>${booking.services?.length || 0} services</td>
+                        <td><strong>₹${booking.finalTotal}</strong></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>
+                            <button class="btn btn-primary btn-small" onclick="viewBooking('${booking.id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // ==================== ALL CUSTOMERS ====================
+        function loadAllCustomers() {
+            const tbody = document.querySelector('#customersTable tbody');
+            if (!tbody) return;
+            
+            if (customers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 50px;">No registered customers</td></tr>';
+                return;
+            }
+            
+            // Merge with booking stats
+            const enriched = customers.map(c => {
+                const customerBookings = bookings.filter(b => b.phone === c.phone);
+                const totalSpent = customerBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+                return {
+                    ...c,
+                    bookings: customerBookings.length,
+                    totalSpent
+                };
+            }).sort((a, b) => b.totalSpent - a.totalSpent);
+            
+            let html = '';
+            enriched.forEach(c => {
+                const regDate = c.registeredAt ? new Date(c.registeredAt).toLocaleDateString('en-IN') : 'N/A';
+                
+                html += `
+                    <tr>
+                        <td><strong>${c.name}</strong></td>
+                        <td>${c.phone}</td>
+                        <td>${c.email || 'Not provided'}</td>
+                        <td>${regDate}</td>
+                        <td>${c.bookings}</td>
+                        <td><strong>₹${c.totalSpent.toLocaleString('en-IN')}</strong></td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // ==================== VIEW BOOKING DETAILS ====================
+        function viewBooking(bookingId) {
+            const booking = bookings.find(b => b.id === bookingId);
+            if (!booking) {
+                showToast('Booking not found', 'error');
+                return;
+            }
+            
+            const statusClass = `status-${booking.status || 'pending'}`;
+            const statusText = booking.status ? 
+                booking.status.charAt(0).toUpperCase() + booking.status.slice(1) : 'Pending';
+            
+            let servicesHtml = '';
+            booking.services?.forEach(s => {
+                servicesHtml += `
+                    <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--blush);">
+                        <span>${s.name} x${s.quantity || 1}</span>
+                        <span style="font-weight: 600;">₹${s.price * (s.quantity || 1)}</span>
+                    </div>
+                `;
+            });
+            
+            const content = `
+                <div style="margin-bottom: 25px;">
+                    <span class="status-badge ${statusClass}" style="margin-bottom: 15px;">${statusText}</span>
+                    <h4 style="color: var(--deep-rose); margin: 15px 0 5px;">${booking.id}</h4>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                    <div>
+                        <p style="color: var(--taupe); font-size: 13px;">CUSTOMER</p>
+                        <p style="font-weight: 600;">${booking.name}</p>
+                        <p>${booking.phone}</p>
+                        <p style="font-size: 14px;">${booking.email || 'No email'}</p>
+                    </div>
+                    <div>
+                        <p style="color: var(--taupe); font-size: 13px;">APPOINTMENT</p>
+                        <p style="font-weight: 600;">${booking.date}</p>
+                        <p>${booking.time}</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <p style="color: var(--taupe); font-size: 13px; margin-bottom: 10px;">ADDRESS</p>
+                    <p>${booking.address}</p>
+                    <p>${booking.area} | ${booking.landmark}</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <p style="color: var(--taupe); font-size: 13px; margin-bottom: 10px;">SERVICES</p>
+                    ${servicesHtml}
+                </div>
+                
+                <div style="background: var(--ivory); padding: 20px; border-radius: 16px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span>Subtotal:</span>
+                        <span>₹${booking.servicesTotal || 0}</span>
+                    </div>
+                    ${booking.holiDiscount ? `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--deep-rose);">
+                        <span><i class="fas fa-gift"></i> Holi Discount:</span>
+                        <span>-₹${booking.holiDiscount}</span>
+                    </div>` : ''}
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span>Home Service:</span>
+                        <span>₹150</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; color: var(--deep-rose); margin-top: 15px; padding-top: 15px; border-top: 2px dashed var(--blush);">
+                        <span>Total:</span>
+                        <span>₹${booking.finalTotal}</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; display: flex; gap: 15px;">
+                    ${booking.status === 'pending' ? `
+                        <button class="btn btn-primary" onclick="updateBookingStatus('${booking.id}', 'confirmed')">
+                            <i class="fas fa-check"></i> Confirm
+                        </button>
+                        <button class="btn btn-primary" style="background: #c98a8a;" onclick="updateBookingStatus('${booking.id}', 'cancelled')">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    ` : ''}
+                    ${booking.status === 'confirmed' ? `
+                        <button class="btn btn-primary" onclick="updateBookingStatus('${booking.id}', 'completed')">
+                            <i class="fas fa-check-double"></i> Complete
+                        </button>
+                        <button class="btn btn-primary" style="background: #c98a8a;" onclick="updateBookingStatus('${booking.id}', 'cancelled')">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    ` : ''}
+                    <a href="https://wa.me/91${booking.phone}" target="_blank" class="btn btn-primary" style="background: #25D366;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            `;
+            
+            document.getElementById('bookingModalContent').innerHTML = content;
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        // ==================== UPDATE BOOKING STATUS ====================
+        function updateBookingStatus(bookingId, newStatus) {
+            const index = bookings.findIndex(b => b.id === bookingId);
+            if (index === -1) {
+                showToast('Booking not found', 'error');
+                return;
+            }
+            
+            bookings[index].status = newStatus;
+            localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify(bookings));
+            
+            loadAllData();
+            closeModal('bookingModal');
+            showToast(`Booking ${newStatus} successfully!`, 'success');
+        }
+
+        // ==================== ANALYTICS ====================
+        function updateAnalytics() {
+            // Conversion rate (placeholder - would need visit data)
+            const conversion = bookings.length > 0 ? '12.5' : '0';
+            document.getElementById('conversionRateStat').textContent = `${conversion}%`;
+            
+            // Average booking value
+            const totalRevenue = bookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            const avgValue = bookings.length > 0 ? Math.round(totalRevenue / bookings.length) : 0;
+            document.getElementById('avgBookingValue').textContent = `₹${avgValue.toLocaleString('en-IN')}`;
+            
+            // Holi usage
+            const holiBookings = bookings.filter(b => b.holiOfferApplied === true).length;
+            const holiPercentage = bookings.length > 0 ? Math.round((holiBookings / bookings.length) * 100) : 0;
+            document.getElementById('holiUsageStat').textContent = `${holiPercentage}%`;
+        }
+
+        function updateRevenueStats() {
+            const today = new Date().toISOString().split('T')[0];
+            
+            // Today
+            const todayBookings = bookings.filter(b => b.date === today);
+            const todayRevenue = todayBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            document.getElementById('todayRevenueDetail').textContent = `₹${todayRevenue.toLocaleString('en-IN')}`;
+            document.getElementById('todayBookingsDetail').textContent = `${todayBookings.length} bookings`;
+            
+            // This week
+            const weekAgo = new Date();
+            weekAgo.setDate(weekAgo.getDate() - 7);
+            const weekAgoStr = weekAgo.toISOString().split('T')[0];
+            
+            const weekBookings = bookings.filter(b => b.date >= weekAgoStr);
+            const weekRevenue = weekBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            document.getElementById('weekRevenueDetail').textContent = `₹${weekRevenue.toLocaleString('en-IN')}`;
+            
+            // This month
+            const monthAgo = new Date();
+            monthAgo.setDate(monthAgo.getDate() - 30);
+            const monthAgoStr = monthAgo.toISOString().split('T')[0];
+            
+            const monthBookings = bookings.filter(b => b.date >= monthAgoStr);
+            const monthRevenue = monthBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            document.getElementById('monthRevenueDetail').textContent = `₹${monthRevenue.toLocaleString('en-IN')}`;
+        }
+
+        // ==================== UI NAVIGATION ====================
+        function showSection(section) {
+            // Hide all sections
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('bookingsSection').style.display = 'none';
+            document.getElementById('customersSection').style.display = 'none';
+            document.getElementById('analyticsSection').style.display = 'none';
+            document.getElementById('revenueSection').style.display = 'none';
+            
+            // Show selected section
+            document.getElementById(`${section}Section`).style.display = 'block';
+            
+            // Update page title
+            const titles = {
+                'dashboard': 'Dashboard',
+                'bookings': 'Booking Management',
+                'customers': 'Customer Database',
+                'analytics': 'Analytics',
+                'revenue': 'Revenue'
+            };
+            document.getElementById('pageTitle').textContent = titles[section];
+            
+            // Update active menu
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('onclick')?.includes(section)) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Load section data
+            if (section === 'bookings') loadAllBookings();
+            if (section === 'customers') loadAllCustomers();
+            if (section === 'analytics') updateAnalytics();
+            if (section === 'revenue') updateRevenueStats();
+        }
+
+        // ==================== UTILITY ====================
+        function refreshAllData() {
+            showToast('Refreshing data...', 'info');
+            loadAllData();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.background = type === 'success' ? 'var(--deep-rose)' : type === 'error' ? '#c98a8a' : '#3498db';
+            toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i> ${message}`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function setupEventListeners() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    document.getElementById('sidebar').classList.toggle('active');
+                });
+            }
+            
+            // Close modal when clicking overlay
+            document.getElementById('bookingModal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal('bookingModal');
+            });
+        }
+
+        // Initial load
+        loadAllData();
+    </script>
+</body>
+</html>
