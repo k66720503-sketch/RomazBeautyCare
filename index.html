@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Romaz Beauty Care | Luxury Salon at Home - Varanasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== LUXURY BEAUTY SALON THEME ========== */
+        :root {
+            --rose-gold: #b76e79;
+            --rose-light: #e8c1c7;
+            --rose-pale: #fbe9ec;
+            --gold: #c6a15b;
+            --gold-light: #e5d5b0;
+            --cream: #fff9f5;
+            --ivory: #fef9f4;
+            --blush: #ffd9de;
+            --charcoal: #4a4a4a;
+            --taupe: #8c7a7a;
+            --mauve: #a76f6f;
+            --shadow-soft: 0 20px 40px -15px rgba(183, 110, 121, 0.15);
+            --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            --radius-smooth: 24px;
+            --radius-soft: 16px;
+            --transition-luxury: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* ===== LUXURY HEADER ===== */
+        .header {
+            background: linear-gradient(145deg, #fff 0%, #fef1f3 100%);
+            box-shadow: 0 4px 25px rgba(183, 110, 121, 0.08);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--rose-light);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--rose-gold), var(--mauve));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            box-shadow: 0 8px 18px rgba(183, 110, 121, 0.25);
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            color: var(--mauve);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--taupe);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-luxury);
+            padding: 10px 18px;
+            border-radius: 40px;
+            background: transparent;
+        }
+
+        .nav-menu li a:hover {
+            background: var(--rose-pale);
+            color: var(--rose-gold);
+        }
+
+        .nav-menu li a i {
+            color: var(--rose-gold);
+        }
+
+        .cart-badge {
+            background: var(--rose-gold);
+            color: white !important;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .auth-btn {
+            background: linear-gradient(145deg, var(--rose-gold), #a55a64) !important;
+            color: white !important;
+            box-shadow: 0 8px 16px rgba(183, 110, 121, 0.25);
+        }
+
+        .auth-btn i {
+            color: white !important;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 28px;
+            color: var(--rose-gold);
+            background: none;
+            border: none;
+        }
+
+        /* ===== WELCOME BAR ===== */
+        .welcome-bar {
+            background: linear-gradient(90deg, var(--rose-gold), var(--gold));
+            color: white;
+            padding: 12px 0;
+            display: none;
+        }
+
+        .welcome-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome-content span i {
+            margin-right: 8px;
+        }
+
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: var(--transition-luxury);
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+            padding: 160px 0 140px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--rose-gold);
+            padding: 16px 45px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: var(--transition-luxury);
+            border: 2px solid transparent;
+        }
+
+        .hero-btn:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+            transform: translateY(-5px);
+        }
+
+        /* ===== OFFER BANNER ===== */
+        .offer-banner {
+            background: linear-gradient(45deg, #b76e79, #c6a15b, #b76e79);
+            background-size: 300% 300%;
+            animation: gradientMove 6s ease infinite;
+            color: white;
+            padding: 18px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .offer-banner i {
+            margin: 0 12px;
+            font-size: 22px;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--mauve);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--taupe);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-smooth);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-luxury);
+            border: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-elegant);
+            border-color: var(--rose-light);
+        }
+
+        .card-header {
+            background: linear-gradient(145deg, var(--rose-gold), #a05258);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-header i {
+            font-size: 40px;
+            background: rgba(255,255,255,0.2);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid rgba(255,255,255,0.4);
+        }
+
+        .card-header h3 {
+            font-size: 24px;
+            margin: 10px 0 0;
+            font-weight: 600;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ffd166;
+            color: #6b4f3c;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .service-list {
+            padding: 25px;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--rose-light);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-info {
+            flex: 1;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--taupe);
+            font-size: 14px;
+        }
+
+        .current-price {
+            font-weight: 700;
+            color: var(--rose-gold);
+            font-size: 18px;
+        }
+
+        .add-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--rose-pale);
+            border: 2px solid var(--rose-gold);
+            color: var(--rose-gold);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-luxury);
+            margin-left: 10px;
+        }
+
+        .add-btn:hover {
+            background: var(--rose-gold);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .add-btn.added {
+            background: #6c9a6c;
+            border-color: #6c9a6c;
+            color: white;
+        }
+
+        /* ===== CART SIDEBAR ===== */
+        .cart-section {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--rose-light);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .cart-header h3 {
+            font-size: 26px;
+            color: var(--mauve);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-items {
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background: var(--cream);
+            border-radius: 18px;
+            margin-bottom: 12px;
+            border-left: 6px solid var(--rose-gold);
+        }
+
+        .cart-item-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-item-price span {
+            font-weight: 700;
+            color: var(--rose-gold);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #c98a8a;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .discount-box {
+            background: linear-gradient(145deg, #fff5e6, #ffece5);
+            padding: 18px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border-left: 6px solid var(--gold);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 2px dashed var(--rose-light);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--mauve);
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-luxury);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--rose-gold), #a05258);
+            color: white;
+            box-shadow: 0 10px 20px rgba(183, 110, 121, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 30px rgba(183, 110, 121, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--rose-gold);
+            border: 2px solid var(--rose-gold);
+        }
+
+        /* ===== BOOKING FORM ===== */
+        .booking-container {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 45px;
+            box-shadow: var(--shadow-elegant);
+            margin: 50px 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--mauve);
+            font-size: 15px;
+        }
+
+        .form-group label i {
+            margin-right: 8px;
+            color: var(--rose-gold);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--rose-pale);
+            border-radius: 18px;
+            font-size: 15px;
+            transition: var(--transition-luxury);
+            background: var(--cream);
+        }
+
+        .form-control:focus {
+            border-color: var(--rose-gold);
+            outline: none;
+            box-shadow: 0 0 0 6px rgba(183, 110, 121, 0.08);
+            background: white;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23b76e79'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+
+        /* ===== STEP INDICATOR ===== */
+        .step-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--rose-pale);
+            color: var(--taupe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 12px;
+            border: 3px solid transparent;
+            transition: var(--transition-luxury);
+        }
+
+        .step.active .step-circle {
+            background: linear-gradient(145deg, var(--rose-gold), #a05258);
+            color: white;
+            border-color: white;
+            box-shadow: 0 0 0 6px rgba(183, 110, 121, 0.2);
+            transform: scale(1.1);
+        }
+
+        .step span {
+            font-weight: 600;
+            color: var(--taupe);
+        }
+
+        .step.active span {
+            color: var(--rose-gold);
+        }
+
+        /* ===== CONFIRMATION ===== */
+        .confirmation-box {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 60px 50px;
+            text-align: center;
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .confirmation-icon {
+            font-size: 90px;
+            color: #6c9a6c;
+            margin-bottom: 25px;
+            animation: scaleUp 0.6s ease;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* ===== STATUS CHECK ===== */
+        .status-section {
+            background: linear-gradient(145deg, #fff9fb, #fff1f3);
+            padding: 70px 0;
+            border-radius: var(--radius-smooth);
+        }
+
+        .status-card {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 45px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .status-input-group {
+            display: flex;
+            margin: 35px 0;
+        }
+
+        .status-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid var(--rose-pale);
+            border-radius: 60px 0 0 60px;
+            font-size: 16px;
+        }
+
+        .status-btn {
+            background: linear-gradient(145deg, var(--rose-gold), #a05258);
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 0 60px 60px 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .booking-result {
+            margin-top: 35px;
+            padding: 30px;
+            background: var(--cream);
+            border-radius: 20px;
+            display: none;
+            text-align: left;
+        }
+
+        .booking-result.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-confirmed { background: #d4edda; color: #155724; }
+        .badge-completed { background: #cce5ff; color: #004085; }
+        .badge-cancelled { background: #f8d7da; color: #721c24; }
+
+        /* ===== MY BOOKINGS ===== */
+        .my-bookings-section {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .booking-history-item {
+            border: 1px solid var(--rose-light);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: var(--transition-luxury);
+        }
+
+        .booking-history-item:hover {
+            box-shadow: var(--shadow-soft);
+            border-color: var(--rose-gold);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #3a2c2f;
+            color: #f0e6e6;
+            padding: 70px 0 30px;
+            margin-top: 70px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .footer h3 {
+            color: #eac8cc;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-luxury);
+        }
+
+        .social-links a:hover {
+            background: var(--rose-gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b99b9b;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: var(--radius-smooth);
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: var(--taupe);
+            cursor: pointer;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-menu.show { 
+                display: flex; 
+                flex-direction: column;
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 40px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            .hero h2 { font-size: 40px; }
+            .form-row { grid-template-columns: 1fr; }
+            .step-wrapper { gap: 30px; }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .section-title h2 { font-size: 32px; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--rose-gold);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 60px;
+            box-shadow: 0 15px 30px rgba(183, 110, 121, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideInRight 0.4s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .text-highlight {
+            color: var(--rose-gold);
+            font-weight: 700;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--taupe);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== AUTH MODAL ========== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeAuthModal()"><i class="fas fa-times"></i></button>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-spa" style="font-size: 60px; color: var(--rose-gold);"></i>
+                <h3 style="color: var(--mauve); margin-top: 15px; font-size: 28px;">Welcome Back</h3>
+            </div>
+            
+            <div style="display: flex; border-bottom: 2px solid var(--rose-pale); margin-bottom: 30px;">
+                <button id="loginTabBtn" style="flex: 1; padding: 15px; background: none; border: none; font-weight: 600; color: var(--taupe; cursor: pointer;" onclick="switchAuthTab('login')">Login</button>
+                <button id="registerTabBtn" style="flex: 1; padding: 15px; background: none; border: none; font-weight: 600; color: var(--taupe); cursor: pointer;" onclick="switchAuthTab('register')">Register</button>
+            </div>
+            
+            <div id="loginForm">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone-alt"></i> Phone Number</label>
+                        <input type="tel" id="loginPhone" class="form-control" placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+            </div>
+            
+            <div id="registerForm" style="display: none;">
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="regName" class="form-control" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone-alt"></i> Phone Number</label>
+                        <input type="tel" id="regPhone" class="form-control" placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email (Optional)</label>
+                        <input type="email" id="regEmail" class="form-control" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="regPassword" class="form-control" placeholder="Create password" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" id="regConfirmPassword" class="form-control" placeholder="Confirm password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== WELCOME BAR ========== -->
+    <div class="welcome-bar" id="welcomeBar">
+        <div class="container welcome-content">
+            <span><i class="fas fa-user-circle"></i> Welcome, <span id="welcomeUserName">Guest</span>! <span id="userBookingCount" style="background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 30px; margin-left: 10px;"><i class="fas fa-calendar-check"></i> <span id="bookingCountValue">0</span> bookings</span></span>
+            <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </div>
+
+    <!-- ========== OFFER BANNER ========== -->
+    <div class="offer-banner" id="offerBanner">
+        <div class="container">
+            <i class="fas fa-gem"></i> HOLI LUXE OFFER: 20% OFF on all services | 15 Feb - 10 Mar 2026 <i class="fas fa-gem"></i>
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Romaz Beauty</h1>
+                    <span>LUXURY SALON AT HOME</span>
+                </div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#services"><i class="fas fa-spa"></i> Services</a></li>
+                    <li><a href="#booking"><i class="fas fa-calendar-alt"></i> Book Now</a></li>
+                    <li><a href="#status"><i class="fas fa-clipboard-list"></i> Check Status</a></li>
+                    <li><a href="#" onclick="showMyBookings(); return false;"><i class="fas fa-history"></i> My Bookings</a></li>
+                    <li><a href="#cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+                    <li><a href="#" onclick="showAuthModal(); return false;" class="auth-btn" id="authNavBtn"><i class="fas fa-user"></i> <span id="authBtnText">Login/Register</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="container">
+            <h2>Where Beauty Meets Elegance</h2>
+            <p>Premium beauty services delivered to your doorstep in Varanasi. Professional artists, luxury products, exceptional results.</p>
+            <a href="#services" class="hero-btn">
+                <i class="fas fa-arrow-right"></i> Explore Services
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES SECTION ========== -->
+    <section id="services" class="container" style="padding: 80px 0;">
+        <div class="section-title">
+            <h2>Our Signature Services</h2>
+            <p>Indulge in our curated collection of premium beauty treatments</p>
+        </div>
+        
+        <div class="services-grid" id="servicesContainer"></div>
+        
+        <!-- ========== CART SECTION ========== -->
+        <div id="cart" class="cart-section" id="cartSection" style="display: none;">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> Your Beauty Cart</h3>
+                <span style="background: var(--rose-pale); padding: 8px 18px; border-radius: 40px; color: var(--rose-gold); font-weight: 600;" id="cartItemCount">0 items</span>
+            </div>
+            
+            <div class="cart-items" id="cartItems"></div>
+            
+            <div id="discountSection" style="display: none;">
+                <div class="discount-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-gift" style="color: var(--gold);"></i> <strong>Holi Festival Discount (20%)</strong></span>
+                        <span style="font-weight: 700; color: var(--rose-gold);" id="discountAmount">-₹0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 15px;">
+                        <span>Home Service Charge</span>
+                        <span style="font-weight: 600;">₹150</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cart-total">
+                <span>Total Amount</span>
+                <span id="cartTotalPrice">₹0</span>
+            </div>
+            
+            <button class="btn btn-primary" id="proceedBtn" style="margin-bottom: 15px;">
+                <i class="fas fa-arrow-right"></i> Proceed to Booking
+            </button>
+            <button class="btn btn-secondary" onclick="clearCart()">
+                <i class="fas fa-trash-alt"></i> Clear Cart
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== BOOKING SECTION ========== -->
+    <section id="booking" style="background: var(--ivory); padding: 80px 0;">
+        <div class="container">
+            <div class="step-wrapper">
+                <div class="step active" id="step1Indicator">
+                    <div class="step-circle">1</div>
+                    <span>Services</span>
+                </div>
+                <div class="step" id="step2Indicator">
+                    <div class="step-circle">2</div>
+                    <span>Details</span>
+                </div>
+                <div class="step" id="step3Indicator">
+                    <div class="step-circle">3</div>
+                    <span>Confirm</span>
+                </div>
+            </div>
+            
+            <!-- STEP 2: BOOKING FORM -->
+            <div id="bookingFormContainer" style="display: none;">
+                <div class="booking-container">
+                    <h3 style="color: var(--mauve); margin-bottom: 35px; font-size: 28px;"><i class="fas fa-pen-alt"></i> Your Details</h3>
+                    
+                    <form id="customerBookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="As per ID proof" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone-alt"></i> Phone Number</label>
+                                <input type="tel" id="mobileNumber" class="form-control" placeholder="10-digit mobile" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-envelope"></i> Email (Optional)</label>
+                                <input type="email" id="emailAddress" class="form-control" placeholder="For booking confirmation">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-map-marker-alt"></i> Full Address</label>
+                                <input type="text" id="fullAddress" class="form-control" placeholder="House/Flat no., Street" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-map-pin"></i> Area</label>
+                                <select id="areaSelect" class="form-control" required>
+                                    <option value="">Select your area</option>
+                                    <option value="sigra">Sigra</option>
+                                    <option value="madhopur">Madhopur</option>
+                                    <option value="bhelupur">Bhelupur</option>
+                                    <option value="lanka">Lanka</option>
+                                    <option value="assi_ghat">Assi Ghat</option>
+                                    <option value="durgakund">Durgakund</option>
+                                    <option value="bhadaini">Bhadaini</option>
+                                    <option value="shivpur">Shivpur</option>
+                                    <option value="mahmoorganj">Mahmoorganj</option>
+                                    <option value="other">Other (within 6km)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-compass"></i> Landmark (Optional)</label>
+                                <input type="text" id="landmarkInput" class="form-control" placeholder="Nearby landmark">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar-alt"></i> Appointment Date</label>
+                                <input type="date" id="appointmentDate" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Time</label>
+                                <select id="appointmentTime" class="form-control" required>
+                                    <option value="">Select time</option>
+                                    <option value="10:00 AM">10:00 AM - 11:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                                    <option value="12:00 PM">12:00 PM - 1:00 PM</option>
+                                    <option value="2:00 PM">2:00 PM - 3:00 PM</option>
+                                    <option value="3:00 PM">3:00 PM - 4:00 PM</option>
+                                    <option value="4:00 PM">4:00 PM - 5:00 PM</option>
+                                    <option value="5:00 PM">5:00 PM - 6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Special Requests (Optional)</label>
+                            <textarea id="specialRequests" class="form-control" rows="3" placeholder="Any specific requirements..."></textarea>
+                        </div>
+                        
+                        <!-- Order Summary -->
+                        <div style="background: var(--cream); padding: 25px; border-radius: 20px; margin: 30px 0;">
+                            <h4 style="color: var(--mauve); margin-bottom: 20px;"><i class="fas fa-receipt"></i> Order Summary</h4>
+                            <div id="bookingSummaryItems"></div>
+                            <div style="display: flex; justify-content: space-between; padding: 15px 0; border-top: 2px dashed var(--rose-light);">
+                                <span>Services Total:</span>
+                                <span style="font-weight: 700;" id="summaryServicesTotal">₹0</span>
+                            </div>
+                            <div id="summaryDiscountRow" style="display: flex; justify-content: space-between; padding: 10px 0; color: var(--rose-gold); display: none;">
+                                <span><i class="fas fa-gift"></i> Holi Discount (20%):</span>
+                                <span style="font-weight: 700;" id="summaryDiscountAmount">-₹0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                                <span>Home Service Charge:</span>
+                                <span style="font-weight: 700;">₹150</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 20px 0 0; border-top: 2px solid var(--rose-light); font-size: 22px; font-weight: 700; color: var(--mauve);">
+                                <span>Final Total:</span>
+                                <span id="summaryFinalTotal">₹0</span>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 20px;">
+                            <button type="button" class="btn btn-secondary" style="width: 30%;" onclick="backToServices()">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary" style="width: 70%;">
+                                <i class="fas fa-check-circle"></i> Confirm Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- STEP 3: CONFIRMATION -->
+            <div id="confirmationContainer" style="display: none;">
+                <div class="confirmation-box">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 style="color: var(--mauve); margin-bottom: 20px; font-size: 36px;">Booking Confirmed!</h2>
+                    <p style="color: var(--taupe); font-size: 18px; margin-bottom: 35px;">Your appointment has been successfully scheduled.</p>
+                    <div id="finalBookingDetails" style="background: var(--cream); border-radius: 20px; padding: 30px; margin-bottom: 35px; text-align: left;"></div>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <button class="btn btn-primary" onclick="window.location.href='#services'">
+                            <i class="fas fa-plus-circle"></i> Book More
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.location.href='#status'">
+                            <i class="fas fa-clipboard-list"></i> Check Status
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATUS CHECK SECTION ========== -->
+    <section id="status" class="status-section">
+        <div class="container">
+            <div class="status-card">
+                <i class="fas fa-clipboard-check" style="font-size: 60px; color: var(--rose-gold); margin-bottom: 20px;"></i>
+                <h3 style="color: var(--mauve); font-size: 32px; margin-bottom: 15px;">Track Your Booking</h3>
+                <p style="color: var(--taupe); margin-bottom: 25px;">Enter your Booking ID or Phone Number</p>
+                
+                <div class="status-input-group">
+                    <input type="text" class="status-input" id="statusSearchInput" placeholder="e.g. ROM123456 or 9876543210">
+                    <button class="status-btn" onclick="checkBookingStatus()"><i class="fas fa-search"></i> Track</button>
+                </div>
+                
+                <div class="booking-result" id="statusResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MY BOOKINGS SECTION ========== -->
+    <section id="myBookingsSection" style="display: none; padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Bookings</h2>
+                <p>Your complete booking history with Romaz Beauty</p>
+            </div>
+            <div class="my-bookings-section" id="myBookingsContainer"></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Romaz Beauty Care</h3>
+                    <p style="color: #d9b8b8; margin-bottom: 20px;">Luxury beauty services at your doorstep in Varanasi. Professional, hygienic, and premium quality.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/916394000191" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone-alt"></i> 6394000191</p>
+                    <p><i class="fas fa-envelope"></i> romabeautyservice1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhopur Sigra, Varanasi</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sun: 9AM - 8PM</p>
+                </div>
+                <div>
+                    <h3>Service Areas</h3>
+                    <p>Sigra • Madhopur • Bhelupur</p>
+                    <p>Lanka • Assi Ghat • Durgakund</p>
+                    <p>Bhadaini • Shivpur • Mahmoorganj</p>
+                    <p><em>Within 6 km radius</em></p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <p><a href="#services" style="color: #d9b8b8; text-decoration: none;">Services</a></p>
+                    <p><a href="#booking" style="color: #d9b8b8; text-decoration: none;">Book Appointment</a></p>
+                    <p><a href="#status" style="color: #d9b8b8; text-decoration: none;">Check Status</a></p>
+                    <p><a href="#" onclick="showMyBookings(); return false;" style="color: #d9b8b8; text-decoration: none;">My Bookings</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Romaz Beauty Care. Premium beauty services in Varanasi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== STORAGE KEYS (SYNC WITH ADMIN DASHBOARD) ====================
+        const STORAGE_KEYS = {
+            BOOKINGS: 'romaz_bookings',
+            CUSTOMERS: 'romaz_customers',
+            CURRENT_USER: 'romaz_current_user'
+        };
+
+        // ==================== GLOBAL VARIABLES ====================
+        let cart = [];
+        let bookings = [];
+        let customers = [];
+        let currentUser = null;
+
+        // HOLI OFFER DATES
+        const HOLI_START = new Date('2026-02-15');
+        const HOLI_END = new Date('2026-03-10');
+        const HOLI_DISCOUNT = 0.20;
+
+        // ==================== SERVICE CATALOG ====================
+        const serviceCatalog = [
+            { category: "Threading", icon: "✂️", items: [
+                { id: 101, name: "Eyebrow Threading", price: 30 },
+                { id: 102, name: "Forehead Threading", price: 20 },
+                { id: 103, name: "Upper Lips", price: 20 },
+                { id: 104, name: "Full Face Threading", price: 80 }
+            ]},
+            { category: "Facial & Skin", icon: "✨", items: [
+                { id: 201, name: "Gold Facial", price: 1000 },
+                { id: 202, name: "Fruit Facial", price: 700 },
+                { id: 203, name: "O3+ Protein Facial", price: 1499 },
+                { id: 204, name: "Foxtale Facial", price: 1999 },
+                { id: 205, name: "Clean-up", price: 500 },
+                { id: 206, name: "De-tan", price: 200 },
+                { id: 207, name: "Bleach", price: 200 }
+            ]},
+            { category: "Hair Services", icon: "💇‍♀️", items: [
+                { id: 301, name: "Hair Cut", price: 300 },
+                { id: 302, name: "Hair Styling", price: 500 },
+                { id: 303, name: "Hair Spa", price: 600 },
+                { id: 304, name: "Hair Trimming", price: 150 },
+                { id: 305, name: "Machine Hairstyling", price: 800 }
+            ]},
+            { category: "Waxing", icon: "🧴", items: [
+                { id: 401, name: "Underarms Wax", price: 300 },
+                { id: 402, name: "Half Leg Wax", price: 250 },
+                { id: 403, name: "Full Leg Wax", price: 400 },
+                { id: 404, name: "Full Arms Wax", price: 350 }
+            ]},
+            { category: "Makeup", icon: "💄", items: [
+                { id: 501, name: "Light Makeup", price: 1000 },
+                { id: 502, name: "Party Makeup", price: 1999 },
+                { id: 503, name: "Bridal Makeup", price: 9999 },
+                { id: 504, name: "Pre-bridal Makeup", price: 14999 }
+            ]},
+            { category: "Nail Care", icon: "💅", items: [
+                { id: 601, name: "Manicure", price: 250 },
+                { id: 602, name: "Pedicure", price: 400 },
+                { id: 603, name: "Nail Art", price: 350 }
+            ]},
+            { category: "Body Treatments", icon: "🌟", items: [
+                { id: 701, name: "Body Massage", price: 500 },
+                { id: 702, name: "Full Body Polishing", price: 999 }
+            ]}
+        ];
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStorage();
+            loadData();
+            loadServices();
+            setupEventListeners();
+            checkHoliOffer();
+            updateAuthUI();
+            
+            // Set minimum date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('appointmentDate').min = tomorrow.toISOString().split('T')[0];
+            document.getElementById('appointmentDate').value = tomorrow.toISOString().split('T')[0];
+        });
+
+        function initializeStorage() {
+            if (!localStorage.getItem(STORAGE_KEYS.BOOKINGS)) {
+                localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify([]));
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) {
+                localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify([]));
+            }
+        }
+
+        function loadData() {
+            bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+            customers = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) || [];
+            currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.CURRENT_USER)) || null;
+        }
+
+        // ==================== SERVICES RENDERING ====================
+        function loadServices() {
+            const container = document.getElementById('servicesContainer');
+            container.innerHTML = '';
+            const isHoli = isHoliActive();
+
+            serviceCatalog.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'service-card';
+                
+                let itemsHtml = '';
+                category.items.forEach(item => {
+                    const discountedPrice = isHoli ? Math.round(item.price * (1 - HOLI_DISCOUNT)) : item.price;
+                    
+                    itemsHtml += `
+                        <div class="service-item">
+                            <div class="service-info">
+                                <div class="service-name">${item.name}</div>
+                                <div class="price-wrapper">
+                                    ${isHoli ? `<span class="original-price">₹${item.price}</span>` : ''}
+                                    <span class="current-price">₹${discountedPrice}</span>
+                                </div>
+                            </div>
+                            <button class="add-btn" onclick="addToCart(${item.id}, '${item.name}', ${discountedPrice}, ${item.price})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    ${isHoli ? '<div class="offer-badge">🎨 20% OFF</div>' : ''}
+                    <div class="card-header">
+                        <i class="fas ${getCategoryIcon(category.category)}"></i>
+                        <h3>${category.category}</h3>
+                    </div>
+                    <div class="service-list">
+                        ${itemsHtml}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'Threading': 'fa-cut',
+                'Facial & Skin': 'fa-spa',
+                'Hair Services': 'fa-scissors',
+                'Waxing': 'fa-tint',
+                'Makeup': 'fa-paint-brush',
+                'Nail Care': 'fa-hand-paper',
+                'Body Treatments': 'fa-heart'
+            };
+            return icons[category] || 'fa-star';
+        }
+
+        // ==================== CART FUNCTIONS ====================
+        function addToCart(id, name, price, originalPrice) {
+            if (!currentUser) {
+                showToast('Please login to add items', 'warning');
+                showAuthModal();
+                return;
+            }
+
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ id, name, price, originalPrice, quantity: 1 });
+            }
+            
+            updateCartUI();
+            
+            // Visual feedback
+            const buttons = document.querySelectorAll('.add-btn');
+            buttons.forEach(btn => {
+                if (btn.onclick && btn.onclick.toString().includes(id.toString())) {
+                    btn.innerHTML = '<i class="fas fa-check"></i>';
+                    btn.classList.add('added');
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-plus"></i>';
+                        btn.classList.remove('added');
+                    }, 1000);
+                }
+            });
+            
+            showToast(`${name} added to cart`, 'success');
+        }
+
+        function removeFromCart(id) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index !== -1) {
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                } else {
+                    cart.splice(index, 1);
+                }
+                updateCartUI();
+                showToast('Item removed', 'info');
+            }
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            if (confirm('Clear all items from cart?')) {
+                cart = [];
+                updateCartUI();
+                showToast('Cart cleared', 'info');
+            }
+        }
+
+        function updateCartUI() {
+            const cartSection = document.getElementById('cart');
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartItemCount = document.getElementById('cartItemCount');
+            const cartTotal = document.getElementById('cartTotalPrice');
+            const discountSection = document.getElementById('discountSection');
+            const discountAmount = document.getElementById('discountAmount');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartItemCount.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+            
+            if (cart.length === 0) {
+                cartSection.style.display = 'none';
+                return;
+            }
+            
+            cartSection.style.display = 'block';
+            
+            let itemsHtml = '';
+            let subtotal = 0;
+            let originalSubtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                originalSubtotal += item.originalPrice * item.quantity;
+                
+                itemsHtml += `
+                    <div class="cart-item">
+                        <div>
+                            <h4>${item.name} ${item.quantity > 1 ? `×${item.quantity}` : ''}</h4>
+                            <div class="cart-item-price">
+                                <span>₹${itemTotal}</span>
+                                ${isHoliActive() && item.originalPrice > item.price ? 
+                                    `<span style="text-decoration: line-through; color: var(--taupe); font-size: 14px;">₹${item.originalPrice * item.quantity}</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHtml;
+            
+            const isHoli = isHoliActive();
+            const discount = isHoli ? Math.round((originalSubtotal - subtotal) * 100) / 100 : 0;
+            
+            if (isHoli && discount > 0) {
+                discountSection.style.display = 'block';
+                discountAmount.textContent = `-₹${discount}`;
+            } else {
+                discountSection.style.display = 'none';
+            }
+            
+            const finalTotal = subtotal + 150;
+            cartTotal.textContent = `₹${finalTotal}`;
+        }
+
+        // ==================== BOOKING PROCESS ====================
+        function proceedToBooking() {
+            if (!currentUser) {
+                showToast('Please login to continue', 'warning');
+                showAuthModal();
+                return;
+            }
+            
+            if (cart.length === 0) {
+                showToast('Your cart is empty', 'warning');
+                return;
+            }
+            
+            // Pre-fill form with user data
+            if (currentUser) {
+                document.getElementById('fullName').value = currentUser.name || '';
+                document.getElementById('mobileNumber').value = currentUser.phone || '';
+                document.getElementById('emailAddress').value = currentUser.email !== 'Not provided' ? currentUser.email : '';
+            }
+            
+            // Show step 2
+            document.getElementById('bookingFormContainer').style.display = 'block';
+            document.getElementById('confirmationContainer').style.display = 'none';
+            document.getElementById('step1Indicator').classList.remove('active');
+            document.getElementById('step2Indicator').classList.add('active');
+            document.getElementById('step3Indicator').classList.remove('active');
+            
+            // Update order summary
+            updateBookingSummary();
+            
+            // Scroll to booking form
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateBookingSummary() {
+            const summaryItems = document.getElementById('bookingSummaryItems');
+            const servicesTotal = document.getElementById('summaryServicesTotal');
+            const discountRow = document.getElementById('summaryDiscountRow');
+            const discountAmount = document.getElementById('summaryDiscountAmount');
+            const finalTotal = document.getElementById('summaryFinalTotal');
+            
+            let itemsHtml = '';
+            let subtotal = 0;
+            let originalSubtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                originalSubtotal += item.originalPrice * item.quantity;
+                
+                itemsHtml += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span>${item.name} ${item.quantity > 1 ? `×${item.quantity}` : ''}</span>
+                        <span style="font-weight: 600;">₹${itemTotal}</span>
+                    </div>
+                `;
+            });
+            
+            summaryItems.innerHTML = itemsHtml;
+            servicesTotal.textContent = `₹${subtotal}`;
+            
+            const isHoli = isHoliActive();
+            const discount = isHoli ? originalSubtotal - subtotal : 0;
+            
+            if (isHoli && discount > 0) {
+                discountRow.style.display = 'flex';
+                discountAmount.textContent = `-₹${discount}`;
+            } else {
+                discountRow.style.display = 'none';
+            }
+            
+            finalTotal.textContent = `₹${subtotal + 150}`;
+        }
+
+        function backToServices() {
+            document.getElementById('bookingFormContainer').style.display = 'none';
+            document.getElementById('step1Indicator').classList.add('active');
+            document.getElementById('step2Indicator').classList.remove('active');
+            window.location.href = '#services';
+        }
+
+        // ==================== BOOKING SUBMISSION (CRITICAL - SYNC WITH ADMIN) ====================
+        document.getElementById('customerBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showToast('Session expired. Please login again.', 'warning');
+                showAuthModal();
+                return;
+            }
+            
+            // Get form values
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('mobileNumber').value.replace(/\D/g, '');
+            const email = document.getElementById('emailAddress').value.trim() || 'Not provided';
+            const address = document.getElementById('fullAddress').value.trim();
+            const area = document.getElementById('areaSelect').value;
+            const landmark = document.getElementById('landmarkInput').value.trim() || 'Not specified';
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            const message = document.getElementById('specialRequests').value.trim() || 'No special instructions';
+            
+            // Validation
+            if (!name || !phone || phone.length !== 10 || !address || !area || !date || !time) {
+                showToast('Please fill all required fields correctly', 'warning');
+                return;
+            }
+            
+            // Verify phone matches logged in user
+            if (phone !== currentUser.phone) {
+                showToast('Phone number must match your registered account', 'warning');
+                return;
+            }
+            
+            // Calculate totals
+            let servicesTotal = 0;
+            let originalTotal = 0;
+            
+            cart.forEach(item => {
+                servicesTotal += item.price * item.quantity;
+                originalTotal += item.originalPrice * item.quantity;
+            });
+            
+            const isHoli = isHoliActive();
+            const holiDiscount = isHoli ? originalTotal - servicesTotal : 0;
+            const homeCharge = 150;
+            const finalTotal = servicesTotal + homeCharge;
+            
+            // Generate unique booking ID (format: ROM + timestamp + random)
+            const bookingId = 'ROM' + Date.now().toString().slice(-6) + Math.floor(Math.random() * 1000);
+            
+            // Create booking object - CRITICAL: This structure MUST match what admin dashboard expects
+            const newBooking = {
+                id: bookingId,
+                name: name,
+                phone: phone,
+                email: email,
+                address: address,
+                area: area,
+                landmark: landmark,
+                date: date,                    // IMPORTANT: Admin reads this as 'date'
+                time: time,
+                message: message,
+                services: cart.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    originalPrice: item.originalPrice,
+                    quantity: item.quantity
+                })),
+                servicesTotal: servicesTotal,
+                originalServicesTotal: originalTotal,
+                holiDiscount: holiDiscount,
+                homeServiceCharge: homeCharge,
+                finalTotal: finalTotal,
+                status: 'pending',             // Default status
+                bookingDate: new Date().toISOString(), // Timestamp
+                holiOfferApplied: isHoli,
+                userId: currentUser.phone
+            };
+            
+            // SAVE TO LOCALSTORAGE - INSTANTLY AVAILABLE TO ADMIN DASHBOARD
+            bookings.push(newBooking);
+            localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify(bookings));
+            
+            // Update customer stats
+            const customerIndex = customers.findIndex(c => c.phone === currentUser.phone);
+            if (customerIndex !== -1) {
+                customers[customerIndex].totalBookings = (customers[customerIndex].totalBookings || 0) + 1;
+                customers[customerIndex].totalSpent = (customers[customerIndex].totalSpent || 0) + finalTotal;
+                customers[customerIndex].lastBooking = date;
+                localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify(customers));
+            }
+            
+            // Send WhatsApp notification to business
+            sendWhatsAppNotification(newBooking);
+            
+            // Clear cart
+            cart = [];
+            updateCartUI();
+            
+            // Show confirmation
+            showConfirmation(newBooking);
+            
+            // Update user booking count
+            const userBookings = bookings.filter(b => b.phone === currentUser.phone);
+            document.getElementById('bookingCountValue').textContent = userBookings.length;
+            
+            showToast(`Booking confirmed! ID: ${bookingId}`, 'success');
+        });
+
+        function showConfirmation(booking) {
+            // Hide booking form, show confirmation
+            document.getElementById('bookingFormContainer').style.display = 'none';
+            document.getElementById('confirmationContainer').style.display = 'block';
+            
+            // Update step indicators
+            document.getElementById('step1Indicator').classList.remove('active');
+            document.getElementById('step2Indicator').classList.remove('active');
+            document.getElementById('step3Indicator').classList.add('active');
+            
+            // Format date
+            const dateObj = new Date(booking.date);
+            const formattedDate = dateObj.toLocaleDateString('en-IN', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Area names
+            const areaNames = {
+                'sigra': 'Sigra', 'madhopur': 'Madhopur', 'bhelupur': 'Bhelupur',
+                'lanka': 'Lanka', 'assi_ghat': 'Assi Ghat', 'durgakund': 'Durgakund',
+                'bhadaini': 'Bhadaini', 'shivpur': 'Shivpur', 'mahmoorganj': 'Mahmoorganj',
+                'other': 'Other (within 6km)'
+            };
+            
+            let servicesHtml = '';
+            booking.services.forEach((s, i) => {
+                servicesHtml += `<div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span>${s.name} ${s.quantity > 1 ? `×${s.quantity}` : ''}</span>
+                    <span style="font-weight: 600;">₹${s.price * s.quantity}</span>
+                </div>`;
+            });
+            
+            const detailsHtml = `
+                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px dashed var(--rose-light);">
+                    <p style="font-size: 20px; font-weight: 700; color: var(--mauve); margin-bottom: 10px;">${booking.id}</p>
+                    <p><i class="fas fa-calendar"></i> ${formattedDate} at ${booking.time}</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <p style="font-weight: 600; margin-bottom: 12px;">Services:</p>
+                    ${servicesHtml}
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Subtotal:</span>
+                        <span>₹${booking.servicesTotal}</span>
+                    </div>
+                    ${booking.holiDiscount > 0 ? `
+                    <div style="display: flex; justify-content: space-between; color: var(--rose-gold);">
+                        <span><i class="fas fa-gift"></i> Holi Discount:</span>
+                        <span>-₹${booking.holiDiscount}</span>
+                    </div>` : ''}
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Home Service:</span>
+                        <span>₹150</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 22px; font-weight: 700; color: var(--mauve); margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--rose-light);">
+                        <span>Total:</span>
+                        <span>₹${booking.finalTotal}</span>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('finalBookingDetails').innerHTML = detailsHtml;
+        }
+
+        function sendWhatsAppNotification(booking) {
+            const areaNames = {
+                'sigra': 'Sigra', 'madhopur': 'Madhopur', 'bhelupur': 'Bhelupur',
+                'lanka': 'Lanka', 'assi_ghat': 'Assi Ghat', 'durgakund': 'Durgakund',
+                'bhadaini': 'Bhadaini', 'shivpur': 'Shivpur', 'mahmoorganj': 'Mahmoorganj',
+                'other': 'Other (within 6km)'
+            };
+            
+            let servicesList = '';
+            booking.services.forEach(s => {
+                servicesList += `${s.name} x${s.quantity} - ₹${s.price * s.quantity}\n`;
+            });
+            
+            const message = `🆕 *NEW BOOKING RECEIVED* 🆕
+━━━━━━━━━━━━━━━
+*Booking ID:* ${booking.id}
+*Customer:* ${booking.name}
+*Phone:* ${booking.phone}
+*Date:* ${booking.date} at ${booking.time}
+*Area:* ${areaNames[booking.area] || booking.area}
+*Address:* ${booking.address}
+━━━━━━━━━━━━━━━
+*SERVICES:*
+${servicesList}
+━━━━━━━━━━━━━━━
+*Subtotal:* ₹${booking.servicesTotal}
+${booking.holiDiscount > 0 ? `*Holi Discount:* -₹${booking.holiDiscount}` : ''}
+*Home Charge:* ₹150
+*TOTAL:* ₹${booking.finalTotal}
+━━━━━━━━━━━━━━━
+*Status:* PENDING
+*Booking Time:* ${new Date().toLocaleString()}
+━━━━━━━━━━━━━━━
+✅ *Check Admin Dashboard to confirm*`;
+            
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/916394000191?text=${encoded}`, '_blank');
+        }
+
+        // ==================== BOOKING STATUS CHECK ====================
+        function checkBookingStatus() {
+            const input = document.getElementById('statusSearchInput').value.trim();
+            const resultDiv = document.getElementById('statusResult');
+            
+            if (!input) {
+                showToast('Please enter Booking ID or Phone', 'warning');
+                return;
+            }
+            
+            // Load latest bookings
+            bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+            
+            let booking = null;
+            
+            // Search by ID
+            booking = bookings.find(b => b.id === input);
+            
+            // If not found, search by phone
+            if (!booking) {
+                const phoneDigits = input.replace(/\D/g, '');
+                if (phoneDigits.length === 10) {
+                    const userBookings = bookings
+                        .filter(b => b.phone === phoneDigits)
+                        .sort((a, b) => new Date(b.bookingDate) - new Date(a.bookingDate));
+                    if (userBookings.length > 0) {
+                        booking = userBookings[0];
+                    }
+                }
+            }
+            
+            if (!booking) {
+                resultDiv.innerHTML = `
+                    <div style="text-align: center; padding: 30px;">
+                        <i class="fas fa-search" style="font-size: 50px; color: var(--taupe); margin-bottom: 15px;"></i>
+                        <h4 style="color: var(--mauve);">Booking Not Found</h4>
+                        <p style="color: var(--taupe);">Please check your Booking ID or Phone Number</p>
+                    </div>
+                `;
+                resultDiv.classList.add('active');
+                return;
+            }
+            
+            // Status badge class
+            let badgeClass = '';
+            let statusText = '';
+            switch(booking.status) {
+                case 'confirmed': badgeClass = 'badge-confirmed'; statusText = '✓ Confirmed'; break;
+                case 'completed': badgeClass = 'badge-completed'; statusText = '✓ Completed'; break;
+                case 'cancelled': badgeClass = 'badge-cancelled'; statusText = '✗ Cancelled'; break;
+                default: badgeClass = 'badge-pending'; statusText = '⏳ Pending';
+            }
+            
+            const dateObj = new Date(booking.date);
+            const formattedDate = dateObj.toLocaleDateString('en-IN', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            resultDiv.innerHTML = `
+                <span class="status-badge ${badgeClass}">${statusText}</span>
+                <h4 style="color: var(--mauve); margin: 15px 0 5px;">${booking.id}</h4>
+                <p style="color: var(--taupe); margin-bottom: 20px;">${booking.name} • ${booking.phone}</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <p style="color: var(--taupe); font-size: 13px;">DATE & TIME</p>
+                        <p style="font-weight: 600;">${formattedDate}</p>
+                        <p>${booking.time}</p>
+                    </div>
+                    <div>
+                        <p style="color: var(--taupe); font-size: 13px;">TOTAL AMOUNT</p>
+                        <p style="font-size: 22px; font-weight: 700; color: var(--rose-gold);">₹${booking.finalTotal}</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--cream); padding: 15px; border-radius: 16px;">
+                    <p style="font-weight: 600; margin-bottom: 8px;">Services:</p>
+                    ${booking.services.map(s => `<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span>${s.name} x${s.quantity}</span>
+                        <span>₹${s.price * s.quantity}</span>
+                    </div>`).join('')}
+                </div>
+                
+                ${booking.status === 'pending' ? `
+                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 16px; color: #856404;">
+                    <i class="fas fa-info-circle"></i> Your booking is pending confirmation. We'll notify you shortly.
+                </div>` : booking.status === 'confirmed' ? `
+                <div style="margin-top: 20px; padding: 15px; background: #d4edda; border-radius: 16px; color: #155724;">
+                    <i class="fas fa-check-circle"></i> Your booking is confirmed! Our artist will arrive at scheduled time.
+                </div>` : ''}
+            `;
+            
+            resultDiv.classList.add('active');
+        }
+
+        // ==================== MY BOOKINGS ====================
+        function showMyBookings() {
+            if (!currentUser) {
+                showToast('Please login to view your bookings', 'warning');
+                showAuthModal();
+                return;
+            }
+            
+            const section = document.getElementById('myBookingsSection');
+            const container = document.getElementById('myBookingsContainer');
+            
+            bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+            const userBookings = bookings
+                .filter(b => b.phone === currentUser.phone)
+                .sort((a, b) => new Date(b.bookingDate) - new Date(a.bookingDate));
+            
+            if (userBookings.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-times" style="font-size: 70px; color: var(--rose-light);"></i>
+                        <h3 style="margin: 20px 0 10px;">No Bookings Yet</h3>
+                        <p style="color: var(--taupe); margin-bottom: 30px;">Book your first beauty service with us!</p>
+                        <a href="#services" class="btn btn-primary" style="width: auto; padding: 14px 40px;">Browse Services</a>
+                    </div>
+                `;
+            } else {
+                let html = '<div style="margin-bottom: 20px;"><span style="font-weight: 600;">Total Bookings: </span>' + userBookings.length + '</div>';
+                
+                userBookings.forEach(booking => {
+                    let badgeClass = '';
+                    let statusText = '';
+                    switch(booking.status) {
+                        case 'confirmed': badgeClass = 'badge-confirmed'; statusText = 'Confirmed'; break;
+                        case 'completed': badgeClass = 'badge-completed'; statusText = 'Completed'; break;
+                        case 'cancelled': badgeClass = 'badge-cancelled'; statusText = 'Cancelled'; break;
+                        default: badgeClass = 'badge-pending'; statusText = 'Pending';
+                    }
+                    
+                    html += `
+                        <div class="booking-history-item">
+                            <div style="display: flex; justify-content: space-between; align-items: start;">
+                                <div>
+                                    <h4 style="color: var(--rose-gold);">${booking.id}</h4>
+                                    <p style="font-size: 14px; color: var(--taupe);">${booking.date} at ${booking.time}</p>
+                                </div>
+                                <span class="status-badge ${badgeClass}">${statusText}</span>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <p style="font-weight: 600;">${booking.services.length} service${booking.services.length > 1 ? 's' : ''}</p>
+                                <p>Total: ₹${booking.finalTotal}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+            
+            section.style.display = 'block';
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ==================== AUTHENTICATION ====================
+        function showAuthModal() {
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginTab = document.getElementById('loginTabBtn');
+            const registerTab = document.getElementById('registerTabBtn');
+            
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                loginTab.style.color = 'var(--rose-gold)';
+                loginTab.style.borderBottom = '3px solid var(--rose-gold)';
+                registerTab.style.color = 'var(--taupe)';
+                registerTab.style.borderBottom = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                registerTab.style.color = 'var(--rose-gold)';
+                registerTab.style.borderBottom = '3px solid var(--rose-gold)';
+                loginTab.style.color = 'var(--taupe)';
+                loginTab.style.borderBottom = 'none';
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('loginPhone').value.replace(/\D/g, '');
+            const password = document.getElementById('loginPassword').value;
+            
+            if (phone.length !== 10) {
+                showToast('Enter valid 10-digit phone number', 'warning');
+                return;
+            }
+            
+            customers = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) || [];
+            const customer = customers.find(c => c.phone === phone && c.password === password);
+            
+            if (!customer) {
+                showToast('Invalid credentials', 'warning');
+                return;
+            }
+            
+            currentUser = {
+                name: customer.name,
+                phone: customer.phone,
+                email: customer.email
+            };
+            
+            localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(currentUser));
+            closeAuthModal();
+            updateAuthUI();
+            showToast(`Welcome back, ${customer.name}!`, 'success');
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value.trim();
+            const phone = document.getElementById('regPhone').value.replace(/\D/g, '');
+            const email = document.getElementById('regEmail').value.trim() || 'Not provided';
+            const password = document.getElementById('regPassword').value;
+            const confirmPass = document.getElementById('regConfirmPassword').value;
+            
+            if (!name || phone.length !== 10 || password.length < 6) {
+                showToast('Please fill all fields correctly', 'warning');
+                return;
+            }
+            
+            if (password !== confirmPass) {
+                showToast('Passwords do not match', 'warning');
+                return;
+            }
+            
+            customers = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) || [];
+            
+            if (customers.some(c => c.phone === phone)) {
+                showToast('Account already exists. Please login.', 'warning');
+                switchAuthTab('login');
+                return;
+            }
+            
+            const newCustomer = {
+                id: 'CUST' + Date.now().toString().slice(-6),
+                name,
+                phone,
+                email,
+                password,
+                registeredAt: new Date().toISOString(),
+                totalBookings: 0,
+                totalSpent: 0
+            };
+            
+            customers.push(newCustomer);
+            localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify(customers));
+            
+            currentUser = { name, phone, email };
+            localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(currentUser));
+            
+            closeAuthModal();
+            updateAuthUI();
+            showToast('Registration successful! Welcome to Romaz Beauty!', 'success');
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+            cart = [];
+            updateCartUI();
+            updateAuthUI();
+            document.getElementById('myBookingsSection').style.display = 'none';
+            showToast('Logged out successfully', 'info');
+        }
+
+        function updateAuthUI() {
+            const welcomeBar = document.getElementById('welcomeBar');
+            const authBtnText = document.getElementById('authBtnText');
+            const welcomeName = document.getElementById('welcomeUserName');
+            const bookingCount = document.getElementById('bookingCountValue');
+            
+            if (currentUser) {
+                welcomeBar.style.display = 'block';
+                authBtnText.textContent = currentUser.name.split(' ')[0];
+                welcomeName.textContent = currentUser.name.split(' ')[0];
+                
+                bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+                const userBookings = bookings.filter(b => b.phone === currentUser.phone);
+                bookingCount.textContent = userBookings.length;
+            } else {
+                welcomeBar.style.display = 'none';
+                authBtnText.textContent = 'Login/Register';
+            }
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function isHoliActive() {
+            const today = new Date();
+            return today >= HOLI_START && today <= HOLI_END;
+        }
+
+        function checkHoliOffer() {
+            const banner = document.getElementById('offerBanner');
+            banner.style.display = isHoliActive() ? 'block' : 'none';
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.background = type === 'success' ? 'var(--rose-gold)' : type === 'warning' ? '#f39c12' : '#3498db';
+            toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i> ${message}`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideInRight 0.4s ease reverse';
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobileToggle').addEventListener('click', function() {
+                document.getElementById('navMenu').classList.toggle('show');
+            });
+            
+            // Proceed to booking
+            document.getElementById('proceedBtn').addEventListener('click', proceedToBooking);
+            
+            // Status check on enter
+            document.getElementById('statusSearchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') checkBookingStatus();
+            });
+            
+            // Close modal when clicking overlay
+            document.getElementById('authModal').addEventListener('click', function(e) {
+                if (e.target === this) closeAuthModal();
+            });
+            
+            // Initialize tab styles
+            document.getElementById('loginTabBtn').style.color = 'var(--rose-gold)';
+            document.getElementById('loginTabBtn').style.borderBottom = '3px solid var(--rose-gold)';
+        }
+
+        // Initialize
+        switchAuthTab('login');
+    </script>
+</body>
+</html>
