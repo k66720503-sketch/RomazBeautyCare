@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover">
+    <title>Romaz Beauty • Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== MOBILE-FIRST ADMIN DASHBOARD ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-gold: #d46b7a;
+            --rose-deep: #b85a67;
+            --rose-light: #fadadd;
+            --rose-pale: #ffe4e9;
+            --cream: #fffbfb;
+            --charcoal: #4a3a3a;
+            --taupe: #a58e8e;
+            --shadow: 0 10px 30px rgba(212, 107, 122, 0.12);
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(145deg, #fff5f7, #ffeef2);
+            color: var(--charcoal);
+            padding: 16px;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER - MOBILE FIRST ===== */
+        .header {
+            background: linear-gradient(145deg, #b85a67, #d46b7a);
+            padding: 25px 20px;
+            border-radius: 28px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(212, 107, 122, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 30px 35px;
+            }
+        }
+
+        .header h1 {
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            letter-spacing: 1px;
+        }
+
+        .live-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-size: clamp(0.85rem, 3.5vw, 1rem);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            width: fit-content;
+        }
+
+        /* ===== STATS GRID - MOBILE ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .stats-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px 18px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid #d46b7a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .stat-info h4 {
+            font-size: 0.8rem;
+            color: var(--taupe);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .stat-info p {
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
+            font-weight: 800;
+            color: var(--rose-deep);
+            line-height: 1;
+        }
+
+        .stat-icon {
+            font-size: clamp(1.8rem, 6vw, 2.2rem);
+            color: #d46b7a;
+            opacity: 0.7;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 35px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .section-title i {
+            font-size: 1.8rem;
+            color: white;
+            background: linear-gradient(145deg, #d46b7a, #b85a67);
+            padding: 14px;
+            border-radius: 50%;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
+            color: #b85a67;
+        }
+
+        /* ===== BOOKING TABLE - HORIZONTAL SCROLL ON MOBILE ===== */
+        .booking-table {
+            background: white;
+            border-radius: 28px;
+            padding: 20px 16px;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px 12px;
+            color: #b85a67;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-bottom: 3px solid #fadadd;
+            background: #fff9fb;
+        }
+
+        td {
+            padding: 16px 12px;
+            border-bottom: 1px solid #ffe4e9;
+            font-size: 0.9rem;
+        }
+
+        .status-badge {
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-confirmed { background: #d4edda; color: #155724; }
+        .status-completed { background: #cce5ff; color: #004085; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .action-btn {
+            background: white;
+            border: 1.5px solid #d46b7a;
+            color: #d46b7a;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0 3px;
+            white-space: nowrap;
+        }
+
+        .confirm-btn { border-color: #28a745; color: #28a745; }
+        .confirm-btn:hover { background: #28a745; color: white; }
+        .complete-btn { border-color: #17a2b8; color: #17a2b8; }
+        .cancel-btn { border-color: #dc3545; color: #dc3545; }
+
+        /* ===== CUSTOMER CARDS - MOBILE OPTIMIZED ===== */
+        .customer-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--rose-light);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .customer-card {
+                flex-direction: row;
+                align-items: center;
+                gap: 25px;
+            }
+        }
+
+        .customer-avatar {
+            background: linear-gradient(145deg, #d46b7a, #b85a67);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .customer-info {
+            flex: 1;
+        }
+
+        .customer-info h3 {
+            font-size: 1.3rem;
+            color: #b85a67;
+            margin-bottom: 8px;
+        }
+
+        .customer-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--taupe);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 480px) {
+            .customer-meta {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
+        /* ===== HOLI OFFER BANNER ===== */
+        .holi-banner {
+            background: linear-gradient(145deg, #fff3cd, #ffe6b3);
+            border-radius: 28px;
+            padding: 25px 20px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 2px solid #ffb347;
+        }
+
+        @media (min-width: 640px) {
+            .holi-banner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 25px 35px;
+            }
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #d46b7a, #b85a67);
+            color: white;
+            padding: 16px 25px;
+            border-radius: 60px;
+            box-shadow: 0 15px 30px rgba(212,107,122,0.3);
+            z-index: 9999;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideUp 0.4s;
+            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 576px) {
+            .toast {
+                left: auto;
+                right: 30px;
+                bottom: 30px;
+                margin: 0;
+            }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-nowrap {
+            white-space: nowrap;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        .mt-3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- HEADER -->
+        <div class="header">
+            <div>
+                <h1><i class="fas fa-spa" style="margin-right: 12px;"></i> Romaz Control</h1>
+                <p style="font-size: 0.95rem; opacity: 0.95; margin-top: 8px;">Varanasi • Luxury Salon at Home</p>
+            </div>
+            <div class="live-badge">
+                <i class="fas fa-sync-alt fa-spin"></i> LIVE • HOLI 20% OFF
+            </div>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <!-- BOOKINGS SECTION -->
+        <div class="section-title">
+            <i class="fas fa-calendar-check"></i>
+            <h2>Recent Bookings</h2>
+            <span style="background: #d46b7a; color: white; padding: 8px 20px; border-radius: 60px; font-size: 0.9rem; font-weight: 700;" id="bookingCount">0</span>
+        </div>
+        <div class="booking-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Date & Time</th>
+                        <th>Services</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTableBody"></tbody>
+            </table>
+            <div id="noBookingsMsg" style="text-align: center; padding: 50px 20px; color: var(--taupe); display: none;">
+                <i class="fas fa-calendar-times" style="font-size: 60px; color: #fadadd;"></i>
+                <h3 style="font-size: 1.5rem; color: #b85a67; margin: 20px 0 10px;">No Bookings Yet</h3>
+                <p>Customer bookings will appear instantly.</p>
+            </div>
+        </div>
+
+        <!-- CUSTOMERS SECTION -->
+        <div class="section-title" style="margin-top: 50px;">
+            <i class="fas fa-users"></i>
+            <h2>Registered Customers</h2>
+        </div>
+        <div class="booking-table">
+            <div id="customerList"></div>
+        </div>
+
+        <!-- HOLI OFFER STATUS -->
+        <div class="holi-banner">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fas fa-gift" style="font-size: 40px; color: #ff8a5c;"></i>
+                <div>
+                    <h3 style="color: #8a6e2b; font-size: 1.3rem; margin-bottom: 5px;">🎨 HOLI FESTIVAL 2026</h3>
+                    <p style="color: #6b4f3c; font-weight: 600;">20% OFF • 13 Feb - 10 Mar 2026</p>
+                </div>
+            </div>
+            <span style="background: #ff8a5c; color: white; padding: 10px 24px; border-radius: 60px; font-weight: 800; font-size: 0.9rem; border: 2px solid white; display: inline-block; text-align: center;">
+                <i class="fas fa-check-circle"></i> ACTIVE
+            </span>
+        </div>
+    </div>
+
+    <script>
+        // ==================== SHARED STORAGE ====================
+        const STORAGE_KEYS = {
+            BOOKINGS: 'romaz_bookings',
+            CUSTOMERS: 'romaz_customers'
+        };
+
+        const HOLI_START = new Date('2026-02-13');
+        const HOLI_END = new Date('2026-03-10');
+
+        // ==================== LOAD DASHBOARD ====================
+        function loadDashboard() {
+            const bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+            const customers = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) || [];
+
+            // STATS CARDS
+            const totalBookings = bookings.length;
+            const pending = bookings.filter(b => b.status === 'pending').length;
+            const confirmed = bookings.filter(b => b.status === 'confirmed').length;
+            const completed = bookings.filter(b => b.status === 'completed').length;
+            const cancelled = bookings.filter(b => b.status === 'cancelled').length;
+            const totalRevenue = bookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+            const uniqueCustomers = new Set(bookings.map(b => b.phone)).size;
+            const holiBookings = bookings.filter(b => b.holiOfferApplied === true).length;
+
+            document.getElementById('statsGrid').innerHTML = `
+                <div class="stat-card"><div class="stat-info"><h4>📋 TOTAL</h4><p>${totalBookings}</p></div><div class="stat-icon"><i class="fas fa-calendar-alt"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>⏳ PENDING</h4><p>${pending}</p></div><div class="stat-icon"><i class="fas fa-clock" style="color:#f39c12;"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>✅ CONFIRMED</h4><p>${confirmed}</p></div><div class="stat-icon"><i class="fas fa-check-circle" style="color:#28a745;"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>✨ COMPLETED</h4><p>${completed}</p></div><div class="stat-icon"><i class="fas fa-star" style="color:#ffc107;"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>❌ CANCELLED</h4><p>${cancelled}</p></div><div class="stat-icon"><i class="fas fa-times-circle" style="color:#dc3545;"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>💰 REVENUE</h4><p>₹${totalRevenue.toLocaleString()}</p></div><div class="stat-icon"><i class="fas fa-coins" style="color:#e6b87e;"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>👥 CUSTOMERS</h4><p>${uniqueCustomers}</p></div><div class="stat-icon"><i class="fas fa-user-heart"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h4>🎨 HOLI</h4><p>${holiBookings}</p></div><div class="stat-icon"><i class="fas fa-gift" style="color:#ff8a5c;"></i></div></div>
+            `;
+
+            // BOOKING TABLE
+            document.getElementById('bookingCount').innerHTML = `${totalBookings} total`;
+            const tbody = document.getElementById('bookingTableBody');
+            
+            if (bookings.length === 0) {
+                document.getElementById('noBookingsMsg').style.display = 'block';
+                tbody.innerHTML = '';
+            } else {
+                document.getElementById('noBookingsMsg').style.display = 'none';
+                let rows = '';
+                
+                bookings.sort((a, b) => new Date(b.bookingDate) - new Date(a.bookingDate)).forEach(b => {
+                    const statusClass = `status-${b.status || 'pending'}`;
+                    const statusText = b.status ? b.status.toUpperCase() : 'PENDING';
+                    const servicesPreview = b.services ? b.services.map(s => `${s.name} x${s.quantity}`).join(', ') : '';
+                    
+                    rows += `<tr>
+                        <td><strong style="color: #d46b7a;">${b.id}</strong></td>
+                        <td>${b.name || 'N/A'}</td>
+                        <td>${b.phone || ''}</td>
+                        <td>${b.date || ''}<br><span style="color: var(--rose-gold); font-size: 0.75rem;">${b.time || ''}</span></td>
+                        <td style="max-width: 200px;">${servicesPreview.substring(0, 30)}${servicesPreview.length > 30 ? '...' : ''}</td>
+                        <td><span style="font-weight: 800; color: #b85a67;">₹${b.finalTotal || 0}</span></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>
+                            ${b.status !== 'confirmed' && b.status !== 'completed' && b.status !== 'cancelled' ? 
+                                `<button class="action-btn confirm-btn" onclick="updateStatus('${b.id}', 'confirmed')"><i class="fas fa-check"></i> Confirm</button>` : ''}
+                            ${b.status === 'confirmed' ? 
+                                `<button class="action-btn complete-btn" onclick="updateStatus('${b.id}', 'completed')"><i class="fas fa-check-double"></i> Complete</button>` : ''}
+                            ${b.status !== 'cancelled' && b.status !== 'completed' ? 
+                                `<button class="action-btn cancel-btn" onclick="updateStatus('${b.id}', 'cancelled')"><i class="fas fa-times"></i> Cancel</button>` : ''}
+                        </td>
+                    </tr>`;
+                });
+                tbody.innerHTML = rows;
+            }
+
+            // CUSTOMER LIST
+            let custHtml = '';
+            if (customers.length === 0) {
+                custHtml = '<div style="text-align: center; padding: 50px;"><i class="fas fa-user-slash" style="font-size: 60px; color: #fadadd;"></i><h3 style="margin-top: 20px; color: #b85a67;">No Registered Customers</h3></div>';
+            } else {
+                customers.sort((a, b) => (b.totalSpent || 0) - (a.totalSpent || 0)).forEach(c => {
+                    const customerBookings = bookings.filter(b => b.phone === c.phone);
+                    const totalSpent = customerBookings.reduce((sum, b) => sum + (b.finalTotal || 0), 0);
+                    
+                    custHtml += `<div class="customer-card">
+                        <div class="customer-avatar"><i class="fas fa-user"></i></div>
+                        <div class="customer-info">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+                                <h3>${c.name || 'Unknown'}</h3>
+                                <span style="background: #d46b7a; color: white; padding: 5px 18px; border-radius: 60px; font-weight: 700; font-size: 0.8rem;">${customerBookings.length} bookings</span>
+                            </div>
+                            <div class="customer-meta">
+                                <span><i class="fas fa-phone-alt"></i> ${c.phone}</span>
+                                <span><i class="fas fa-envelope"></i> ${c.email || '—'}</span>
+                                <span><i class="fas fa-calendar-alt"></i> ${c.registeredAt ? new Date(c.registeredAt).toLocaleDateString('en-IN') : 'N/A'}</span>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <span style="font-weight: 700; color: #b85a67;"><i class="fas fa-coins"></i> Spent: ₹${totalSpent.toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+            }
+            document.getElementById('customerList').innerHTML = custHtml;
+        }
+
+        // ==================== UPDATE STATUS ====================
+        function updateStatus(bookingId, newStatus) {
+            let bookings = JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKINGS)) || [];
+            const index = bookings.findIndex(b => b.id === bookingId);
+            if (index !== -1) {
+                bookings[index].status = newStatus;
+                localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify(bookings));
+                loadDashboard();
+                showToast(`✅ Booking ${bookingId} marked as ${newStatus}`);
+            }
+        }
+
+        // ==================== TOAST ====================
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<i class="fas fa-check-circle"></i> ${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // ==================== AUTO REFRESH ====================
+        window.updateStatus = updateStatus;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboard();
+            setInterval(loadDashboard, 1500); // Real-time sync
+        });
+    </script>
+</body>
+</html>
